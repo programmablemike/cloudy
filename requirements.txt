@@ -1,0 +1,7 @@
+anyio==3.5.0
+ariadne==0.14.1
+graphql-core==3.1.7
+idna==3.3
+sniffio==1.2.0
+starlette==0.17.1
+typing_extensions==4.1.1
