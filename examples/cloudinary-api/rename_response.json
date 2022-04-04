@@ -1,0 +1,19 @@
+{
+  "asset_id": "b5e6d2b39ba3e0869d67141ba7dba6ce",
+  "public_id": "grand_canyon",
+  "version": 1570979583,
+  "version_id": "98f52566f43d8e516a486958a45c1eb0",
+  "signature": "abcdefghijklmnopqrstuvwxyz12345",
+  "width": 2896,
+  "height": 1944,
+  "format": "jpg",
+  "resource_type": "image",
+  "created_at": "2017-08-11T12:31:13Z",
+  "tags": [],
+  "bytes": 1414789,
+  "type": "upload",
+  "placeholder": false,
+  "url": "http://res.cloudinary.com/demo/image/upload/v1570979583/grand_canyon.jpg",
+  "secure_url": "https://res.cloudinary.com/demo/image/upload/v1570979583/grand_canyon.jpg",
+  "access_mode": "public"
+}
