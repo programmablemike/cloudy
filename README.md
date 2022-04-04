@@ -8,4 +8,4 @@ Cloudy is a reference Python application for a GraphQL API proxy to the Cloudina
 
 ## license
 
-MIT licensed. See (here)[./liceneses/MIT.txt] for more details.
+MIT licensed. See [here](./liceneses/MIT.txt) for more details.
