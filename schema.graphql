@@ -66,7 +66,7 @@ type Test {
 type Mutation {
   uploadImage(
     file: String!
-    upload_reset: String!
+    upload_preset: String!
     signature: String!
   ): UploadResult
   renameImage(
