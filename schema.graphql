@@ -1,90 +1,120 @@
 schema {
-    upload: Upload
-    rename: Rename
-    destroy: Destroy
+  query: Query
+  mutation: Mutation
 }
+
+type Query {
+  getTest(id: ID!, value: String!): Test
+}
+
+type Test {
+  id: ID!
+  value: String!
+}
+
+type Mutation {
+  uploadImage(
+    file: String!
+    upload_reset: String!
+    signature: String!
+  ): UploadResult
+  renameImage(
+    from_public_id: String!
+    to_public_id: String!
+    signature: String!
+  ): RenameResult
+  destroyImage(public_id: String!, signature: String!): DestroyResult
+}
+
+# TODO(mlee): Add a standardized result to each mutation
+#interface MutationResponse {
+#    response_to: ID!
+#    code: String!
+#    success: Boolean!
+#    message: String!
+#}
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#upload_required_parameters
 type Upload {
-    id: ID!
-    file: String!
-    upload_preset: String!
-    signature: String!
+  id: ID!
+  file: String!
+  upload_preset: String!
+  signature: String!
 }
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#upload_response
 type UploadResult {
-    id: ID!
-    asset_id: String!
-    public_id: String!
-    version: Number!
-    version_id: String!
-    signature: String!
-    width: Number!
-    height: Number!
-    format: String!
-    resource_type: String!
-    created_at: String!
-    tags: [String!]!
-    pages: Number!
-    bytes: Number!
-    type: String!
-    placeholder: Boolean!
-    url: String!
-    secure_url: String!
-    access_mode: String!
-    original_filename: String!
-    eager: [Eager!]!
+  id: ID!
+  asset_id: String!
+  public_id: String!
+  version: Int!
+  version_id: String!
+  signature: String!
+  width: Int!
+  height: Int!
+  format: String!
+  resource_type: String!
+  created_at: String!
+  tags: [String!]!
+  pages: Int!
+  bytes: Int!
+  type: String!
+  placeholder: Boolean!
+  url: String!
+  secure_url: String!
+  access_mode: String!
+  original_filename: String!
+  eager: [Eager!]!
 }
-
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#upload_response
 type Eager {
-    transformation: String!
-    width: Number!
-    height: Number!
-    url: String!
-    secure_url: String!
+  transformation: String!
+  width: Int!
+  height: Int!
+  url: String!
+  secure_url: String!
 }
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#rename_required_parameters
 type Rename {
-    id: ID!
-    from_public_id: String!
-    to_public_id: String!
-    signature: String!
+  id: ID!
+  from_public_id: String!
+  to_public_id: String!
+  signature: String!
 }
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#rename_response
 type RenameResult {
-    id: ID!
-    assert_id: String!
-    public_id: String!
-    version: Number!
-    version_id: String!
-    signature: String!
-    width: Number!
-    height: Number!
-    format: String!
-    resource_type: String!
-    created_at: String!
-    tags: [String!]!
-    bytes: Number!
-    type: String!
-    placeholder: Boolean!
-    url: String!
-    secure_url: String!
-    access_mode: String!
+  id: ID!
+  assert_id: String!
+  public_id: String!
+  version: Int!
+  version_id: String!
+  signature: String!
+  width: Int!
+  height: Int!
+  format: String!
+  resource_type: String!
+  created_at: String!
+  tags: [String!]!
+  bytes: Int!
+  type: String!
+  placeholder: Boolean!
+  url: String!
+  secure_url: String!
+  access_mode: String!
 }
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#destroy_required_parameters
 type Destroy {
-    id: ID!
-    public_id: String!
-    signature: String!
+  id: ID!
+  public_id: String!
+  signature: String!
 }
 
 # Comes from: https://cloudinary.com/documentation/image_upload_api_reference#destroy_response
 type DestroyResult {
-    result: String!
+  id: ID!
+  result: String!
 }

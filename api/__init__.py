@@ -5,6 +5,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/')
-def hello():
-    return 'My first API'
+@app.route('/health')
+def healthcheck():
+    return 'OK'
