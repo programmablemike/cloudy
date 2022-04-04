@@ -18,3 +18,11 @@ run:
 .PHONY: test
 test:
 	python -m unittest discover tests/ "*_test.py"
+
+.PHONY: docker-build
+docker-build:
+	docker build -f Dockerfile -t cloudy:latest .
+
+.PHONY: docker-run
+docker-run:
+	docker run -it --rm --publish-all cloudy:latest
