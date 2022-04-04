@@ -42,7 +42,7 @@ def resolve_upload_image(_, info: object, file: str, upload_preset: str, signatu
     #####
     # TODO(mlee): Replace this with a query to the Cloudinary API
     #####
-    return json_load(EXAMPLES_DIRECTORY + "upload_response.json")
+    return json_load(open(EXAMPLES_DIRECTORY + "/upload_response.json"))
 
 
 @mutation.field("renameImage")
@@ -50,7 +50,7 @@ def resolve_rename_image(_, info: object, from_public_id: str, to_public_id: str
     #####
     # TODO(mlee): Replace this with a query to the Cloudinary API
     #####
-    return json_load(EXAMPLES_DIRECTORY + "rename_response.json")
+    return json_load(open(EXAMPLES_DIRECTORY + "/rename_response.json"))
 
 
 @mutation.field("destroyImage")
@@ -58,7 +58,7 @@ def resolve_destroy_image(_, info: object, public_id: str, signature: str):
     #####
     # TODO(mlee): Replace this with a query to the Cloudinary API
     #####
-    return json_load(EXAMPLES_DIRECTORY + "destroy_response.json")
+    return json_load(open(EXAMPLES_DIRECTORY + "/destroy_response.json"))
 
 
 schema = make_executable_schema(
