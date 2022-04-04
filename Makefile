@@ -14,3 +14,7 @@ freeze:
 run:
 	@echo "Running the server"
 	FLASK_APP=app.py flask run
+
+.PHONY: test
+test:
+	python -m unittest discover tests/ "*_test.py"
