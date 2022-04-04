@@ -15,3 +15,4 @@ COPY . .
 ENV FLASK_APP=/app/app.py
 EXPOSE 5000
 CMD . ./virtualenv/bin/activate && flask run -h 0.0.0.0 -p 5000
+# NOTE(mlee): To get the ephemeral port you can use the command `docker port <container-id>`
