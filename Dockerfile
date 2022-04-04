@@ -1,3 +1,6 @@
+#####
+# NOTE(mlee): This is not a secure docker image and is only included for local development testing
+#####
 FROM alpine:latest
 WORKDIR /app
 # Install packages
