@@ -1,9 +1,9 @@
-from ariadne import gql, load_schema_from_path
+#from ariadne import load_schema_from_path
 from os.path import abspath
 
-SCHEMA_PATH = "../../schema.graphql"
+SCHEMA_PATH = abspath("../../schema.graphql")
 
 
-def setup_graphql():
-    schema_file = abspath(SCHEMA_PATH)
-    schema = load_schema_from_path(schema_file)
+# def setup_graphql():
+#    schema = load_schema_from_path(SCHEMA_PATH)
+#    return schema

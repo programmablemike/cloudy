@@ -4,13 +4,64 @@ schema {
 }
 
 type Query {
-  getTest(id: ID!, value: String!): Test
+  test(id: ID!, value: String!): Test
+  #search(expression: String, sort_by: [String]!, max_results: String, next_cursor: String, with_field: String, aggregate: String): SearchResult
 }
 
 type Test {
   id: ID!
   value: String!
 }
+
+# TODO(mlee): Finish fleshing out the SearchResult to match https://cloudinary.com/documentation/search_api#response
+#type Search {
+#  expression: String
+#  sort_by: [String]!
+#  max_results: Int
+#  next_cursor: String
+#  with_field: String
+#  aggregate: String
+#}
+#
+#type Resource {
+#    asset_id: String!
+#    public_id: String!
+#    folder: String!
+#    filename: String!
+#    format: String!
+#    version: Int!
+#    resource_type: String!
+#    type: String!
+#    created_at: String!
+#    uploaded_at: String!
+#    bytes: Int!
+#    backup_bytes: !Int
+#    width: Int!
+#    height: Int!
+#    aspect_ratio: Float!
+#    pixels: Int!
+#    access_control: [AccessControl!]!
+#}
+#
+#type AccessControl {
+#    access_type: String!
+#    start: String!
+#    end: String!
+#}
+#
+#type ImageAnalysis {
+#    face_count: Int!
+#    # faces: []
+#    grayscale: Boolean!
+#    illustration_score: Int!
+#    transparent: Boolean!
+#    colors:
+#}
+#
+#type SearchResult {
+#
+#
+#}
 
 type Mutation {
   uploadImage(
