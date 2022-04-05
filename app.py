@@ -68,7 +68,6 @@ def resolve_upload_image(_, info: object, file: str, signature: str):
     '''
     Handler for uploadImage mutator requests
     '''
-    cloudinary.uploader.upload(file)
     #####
     # TODO(mlee): Replace this with a query to the Cloudinary API
     #####
