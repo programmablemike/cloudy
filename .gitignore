@@ -1,2 +1,3 @@
 cloudy-env/*
 __pycache__
+.env

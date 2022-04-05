@@ -1,13 +1,21 @@
-from api import app
-from ariadne import (load_schema_from_path, make_executable_schema,
-                     graphql_sync, snake_case_fallback_resolvers, MutationType, QueryType)
-from ariadne.constants import PLAYGROUND_HTML
-from flask import request, jsonify
-from os.path import abspath
+import os
 from json import load as json_load
+from os.path import abspath
+
+import cloudinary
+from ariadne import (MutationType, QueryType, graphql_sync,
+                     load_schema_from_path, make_executable_schema,
+                     snake_case_fallback_resolvers)
+from ariadne.constants import PLAYGROUND_HTML
+from dotenv import load_dotenv
+from flask import jsonify, request
+
+from api import app
 
 EXAMPLES_DIRECTORY = abspath("./examples/cloudinary-api")
 
+# Read configuration from a .env file
+load_dotenv()
 type_defs = load_schema_from_path('schema.graphql')
 # The built-in Query and Mutator object types
 # These are registered in make_executable_schema to provide custom event handlers for requests
@@ -15,6 +23,12 @@ query = QueryType()
 mutation = MutationType()
 schema = make_executable_schema(
     type_defs, query, mutation, snake_case_fallback_resolvers
+)
+cloudinary.config(
+    cloud_name=os.environ['CLOUDINARY_CLOUD_NAME'],
+    api_key=os.environ['CLOUDINARY_API_KEY'],
+    api_secret=os.environ['CLOUDINARY_API_SECRET'],
+    secure=True,
 )
 
 
@@ -50,10 +64,11 @@ def resolve_healthy(*_):
 
 
 @mutation.field("uploadImage")
-def resolve_upload_image(_, info: object, file: str, upload_preset: str, signature: str):
+def resolve_upload_image(_, info: object, file: str, signature: str):
     '''
     Handler for uploadImage mutator requests
     '''
+    cloudinary.uploader.upload(file)
     #####
     # TODO(mlee): Replace this with a query to the Cloudinary API
     #####

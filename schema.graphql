@@ -62,11 +62,7 @@ type HealthResponse {
 #}
 
 type Mutation {
-  uploadImage(
-    file: String!
-    upload_preset: String!
-    signature: String!
-  ): UploadResult
+  uploadImage(file: String!, signature: String!): UploadResult
   renameImage(
     from_public_id: String!
     to_public_id: String!
